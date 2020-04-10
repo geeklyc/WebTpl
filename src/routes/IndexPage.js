@@ -3,13 +3,17 @@
  * @Author: liyoucheng
  * @Date: 2020-04-09 18:27:15
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-09 18:27:15
+ * @LastEditTime: 2020-04-10 12:06:01
  */
 import React from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
+import testPage1 from './../Business/Refactor/page1/index';
 
 function IndexPage() {
+
+  console.log(testPage1());
+
   return (
     <div className={styles.normal}>
       <h1 className={styles.title}>Yay! Welcome to dva!</h1>

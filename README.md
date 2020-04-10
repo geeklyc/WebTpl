@@ -3,7 +3,7 @@
  * @Author: liyoucheng
  * @Date: 2020-04-09 18:01:45
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-10 08:45:05
+ * @LastEditTime: 2020-04-10 09:24:26
  -->
 # WebTpl
 前端
@@ -124,3 +124,6 @@ export default connect(({ products }) => ({
 ```
 npm run build
 ```
+
+### Jest
+[Jest官网](https://jestjs.io/docs/zh-Hans/getting-started)
