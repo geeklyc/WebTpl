@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Author: liyoucheng
+ * @Date: 2020-04-09 18:27:15
+ * @LastEditors: liyoucheng
+ * @LastEditTime: 2020-04-09 18:27:15
+ */
 import React from 'react';
 import { connect } from 'dva';
 import styles from './IndexPage.css';
