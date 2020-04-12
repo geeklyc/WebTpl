@@ -3,13 +3,16 @@
  * @Author: liyoucheng
  * @Date: 2020-04-11 19:18:03
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-11 20:04:44
+ * @LastEditTime: 2020-04-11 20:12:02
  */
 import React, { useState, useEffect } from 'react';
 
 function Example(props) {
   const [count, setCount] = useState(0);
   const [isOnline, setIsOnline] = useState(null);
+  // if (true) {
+  //   const [age, setAge] = useState(42);
+  // }
 
   function handleStatusChange(status) {
     setIsOnline(status.isOnline);
