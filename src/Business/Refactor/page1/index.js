@@ -3,7 +3,7 @@
  * @Author: liyoucheng
  * @Date: 2020-04-09 12:50:29
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-15 12:52:30
+ * @LastEditTime: 2020-04-15 12:55:32
  */
 
  import invoices from './invoices.json';
@@ -46,15 +46,13 @@ function statement(invoice, plays) {
   }).format;
   
   for (let perf of invoice.performances) {
-    let thisAmount = amountFor(perf, playFor(perf));
-
     volumeCredits += Math.max(perf.audience - 30, 0);
     if ("comedy" === playFor(perf).type) {
       volumeCredits += Math.floor(perf.audience / 5);
     }
 
-    result += ` ${playFor(perf).name}: ${format(thisAmount / 100)} ${perf.audience} seats\n`;
-    totalAmount += thisAmount;
+    result += ` ${playFor(perf).name}: ${format(amountFor(perf, playFor(perf)) / 100)} ${perf.audience} seats\n`;
+    totalAmount += amountFor(perf, playFor(perf));
   }
   result += `Amount owed is ${format(totalAmount / 100)}\n`;
   result += `You earned ${volumeCredits} credits\n`;
