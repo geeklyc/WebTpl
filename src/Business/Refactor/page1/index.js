@@ -3,7 +3,7 @@
  * @Author: liyoucheng
  * @Date: 2020-04-09 12:50:29
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-15 12:45:35
+ * @LastEditTime: 2020-04-15 12:48:14
  */
 
  import invoices from './invoices.json';
@@ -31,6 +31,10 @@ function amountFor(aPerformance, play) {
   return result;
 }
 
+function playFor(aPerformance) {
+  return plays[aPerformance.playID];
+}
+
 function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
@@ -42,7 +46,7 @@ function statement(invoice, plays) {
   }).format;
   
   for (let perf of invoice.performances) {
-    const play = plays[perf.playID];
+    const play = playFor(perf);
     
     let thisAmount = amountFor(perf, play);
 
