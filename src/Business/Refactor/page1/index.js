@@ -3,13 +3,35 @@
  * @Author: liyoucheng
  * @Date: 2020-04-09 12:50:29
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-09 14:07:31
+ * @LastEditTime: 2020-04-15 12:31:49
  */
 
  import invoices from './invoices.json';
  import plays from './plays.json';
 
-export function statement(invoice, plays) {
+function amountFor(perf, play) {
+  let thisAmount = 0;
+  switch (play.type) {
+    case "tragedy":
+      thisAmount = 40000;
+      if (perf.audience > 30) {
+        thisAmount += 1000 * (perf.audience - 30);
+      }
+      break;
+    case "comedy":
+      thisAmount = 30000;
+      if (perf.audience > 20) {
+        thisAmount += 10000 + 500 * (perf.audience - 20);
+      }
+      thisAmount += 300 * perf.audience;
+      break;
+    default:
+      throw new Error(`unknown type: ${play.type}`);
+  }
+  return thisAmount;
+}
+
+function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
   let result = `Statement for ${invoice.customer}\n`;
@@ -21,24 +43,8 @@ export function statement(invoice, plays) {
   
   for (let perf of invoice.performances) {
     const play = plays[perf.playID];
-    let thisAmount = 0;
-    switch (play.type) {
-      case "tragedy":
-        thisAmount = 40000;
-        if (perf.audience > 30) {
-          thisAmount += 1000 * (perf.audience - 30);
-        }
-        break;
-      case "comedy":
-        thisAmount = 30000;
-        if (perf.audience > 20) {
-          thisAmount += 10000 + 500 * (perf.audience - 20);
-        }
-        thisAmount += 300 * perf.audience;
-        break;
-      default:
-        throw new Error(`unknown type: ${play.type}`);
-    }
+    
+    let thisAmount = amountFor(perf, play);
 
     volumeCredits += Math.max(perf.audience - 30, 0);
     if ("comedy" === play.type) {
@@ -59,4 +65,7 @@ function testPage1() {
   console.log(ret);
 }
 
-export default testPage1;
+export {
+  testPage1,
+  statement,
+};

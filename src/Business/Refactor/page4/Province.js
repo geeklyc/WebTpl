@@ -3,7 +3,7 @@
  * @Author: liyoucheng
  * @Date: 2020-04-10 12:46:57
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-10 14:16:06
+ * @LastEditTime: 2020-04-15 12:38:42
  */
 import Producer from './Producer';
 
@@ -58,7 +58,7 @@ class Province {
 
   // 库存缺额
   get shortfall() {
-    return this._demand - this.totalProduction * 2;
+    return this._demand - this.totalProduction;
   }
 
   // 计算利润
