@@ -35,7 +35,7 @@ declare function create(o: object | null): void;
 create({ prop: 0 }); // OK
 create(null); // OK
 
-// 返回never的函数必须存在无法达到的终点
+// 返回never的函数必须存在无法达到的终点g
 function error(message: string): never {
   throw new Error(message);
 }
