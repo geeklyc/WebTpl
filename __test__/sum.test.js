@@ -11,6 +11,9 @@
 //   fetchData,
 //   fetchData1
 // } = require('./../src/models/sum');
+import { shallow } from 'enzyme';
+import React from 'react';
+import Page404 from './Page404';
 
 // test('adds 1 + 2 to equal 3', () => {
 //   expect(sum(1, 2)).toBe(3);
@@ -19,6 +22,27 @@
 test('two plus two is four', () => {
   expect(2 + 2).toBe(4);
 });
+
+describe('Page404', () => {
+  it('Page404 Shows 404', () => {
+    const app = shallow(<Page404 />);
+    expect(app.find('div').text()).toEqual('404');
+  });
+});
+
+// describe('加法函数测试', () => {
+
+//   beforeEach(() => {// 在本区块的每个测试用例之前执行
+//   });
+
+//   afterEach(() => {// 在本区块的每个测试用例之后执行
+//   });
+
+
+//   it('1加1应该等于2', () => {
+//      expect(1 + 1).toBe(2);
+//   });
+// });
 
 // test('object assignment', () => {
 //   const data = {one: 1};
