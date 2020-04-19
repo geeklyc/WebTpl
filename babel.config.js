@@ -1,5 +1,5 @@
 /*
- * @Description: 
+ * @Description:
  * @Author: liyoucheng
  * @Date: 2020-04-10 09:24:59
  * @LastEditors: liyoucheng
@@ -9,12 +9,13 @@
 module.exports = {
   presets: [
     [
-      '@babel/preset-env',
+      "@babel/preset-env",
       {
         targets: {
-          node: 'current',
+          node: "current",
         },
       },
     ],
   ],
+  plugins: ["@babel/plugin-transform-runtime"],
 };
