@@ -5,7 +5,8 @@
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
     "precommit": "npm run lint",
-    "test": "jest --colors --coverage"
+    "test": "jest --colors",
+    "coverage": "jest --colors --coverage"
   },
   "dependencies": {
     "antd": "3.26.15",
@@ -17,12 +18,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
     "babel-jest": "^25.3.0",
     "babel-plugin-dva-hmr": "^0.3.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
     "eslint": "^4.14.0",
     "eslint-config-umi": "^0.1.1",
     "eslint-plugin-flowtype": "^2.34.1",
@@ -31,8 +33,22 @@
     "eslint-plugin-react": "^7.1.0",
     "husky": "^0.12.0",
     "jest": "^25.3.0",
+    "mockjs": "^1.1.0",
     "react-test-renderer": "^16.13.1",
     "redbox-react": "^1.4.3",
     "roadhog": "^2.5.0-beta.4"
+  },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverage": true,
+    "coverageReporters": [
+      "lcov"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-navigation)"
+    ],
+    "moduleNameMapper": {
+      "react-native": "<rootDir>/mocks/react-native.js"
+    }
   }
 }

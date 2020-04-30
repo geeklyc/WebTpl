@@ -3,12 +3,11 @@
  * @Author: liyoucheng
  * @Date: 2020-04-09 18:27:15
  * @LastEditors: liyoucheng
- * @LastEditTime: 2020-04-19 23:42:04
+ * @LastEditTime: 2020-04-28 19:46:27
  */
 import React from 'react';
 import { Form, Input } from 'antd';
 import { connect } from 'dva';
-import { Form } from 'antd';
 import styles from './IndexPage.css';
 import { statement } from './../Business/Refactor/page1/index';
 import testPage1 from './../Business/TypeScript/greeter';
@@ -17,7 +16,8 @@ import ByteInput from './../components/ByteInput/index';
 import FormComponent from './../components/Test/index';
 import charLength from './../utils/utils';
 import test from './../Business/TypeScript/greeter';
-
+import { testPromise } from './../Business/Promise';
+import App from './../components/App';
 
 class IndexPage extends React.PureComponent {
 
@@ -45,29 +45,30 @@ class IndexPage extends React.PureComponent {
   
 
   render() {
-    test();
+    testPromise();
     // const { getFieldDecorator } = this.props.form;
     return (
-      <React.Fragment>
-        {/* <Form
+      <App />
+      // <React.Fragment>
+      //   {/* <Form
           
-          >
-          <Form.Item
-            label="限制字节数"
-            name="age"
-          >
-            {
-              getFieldDecorator('new', {
-                rules: [{ validator: this.checkPrice}]
-              })(<Input onChange={(e) => {
-                console.log('接收', e);
-              }} />)
-            }
+      //     >
+      //     <Form.Item
+      //       label="限制字节数"
+      //       name="age"
+      //     >
+      //       {
+      //         getFieldDecorator('new', {
+      //           rules: [{ validator: this.checkPrice}]
+      //         })(<Input onChange={(e) => {
+      //           console.log('接收', e);
+      //         }} />)
+      //       }
             
-          </Form.Item>
-        </Form> */}
-        <Example />
-      </React.Fragment>
+      //     </Form.Item>
+      //   </Form> */}
+      //   <Example />
+      // </React.Fragment>
     );
   }
 }
