@@ -1,5 +1,19 @@
 {
   "extraBabelPlugins": [
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
-  ]
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }],
+    ["module-resolver", {
+       "root": ["src"],
+       "alias": {
+         
+       }
+    }]
+  ],
+  "proxy": {
+    "/api": {
+      "target": "http://jsonplaceholder.typicode.com/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api" : "" }
+    }
+  },
+  "publicPatch": "./"
 }

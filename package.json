@@ -22,6 +22,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-jest": "^25.3.0",
     "babel-plugin-dva-hmr": "^0.3.2",
+    "babel-plugin-module-resolver": "^4.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
